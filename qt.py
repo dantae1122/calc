@@ -75,102 +75,128 @@ class WindowClass(QMainWindow, form_class) :
         if self.lineEdit.text() != '':
             a = 0
             b = 0
-            c = 0    
+            c = 0
+            a_1 = 0
+            b_1 = 0
+            list_num = []
+            list_ca = [0]
+            list_return = []
             self.lineEdit.setText('')
     
     def button13Function(self) :
-        global a
+        global a,a_1
         a = self.lineEdit.text()
-        if a.find('.') == True:
-            float(a)
-        else:
-            int(a)
+        if a.find('.') > 0:
+            a_1 = float(a)
+        elif a.find('.') <= 0:
+            a_1 = int(a)
+        list_num.append(a_1)
         del list_ca[0]
-        a = int(self.lineEdit.text())
         list_ca.append('/')
         self.lineEdit.setText(self.lineEdit.text()+'/')
         self.lineEdit.setText('')
     
     def button14Function(self) :
         list_num.append(int(self.lineEdit.text()))
-        list_ca.append('.')
         self.lineEdit.setText(self.lineEdit.text()+'.')
         
 
     def button15Function(self) :
-        global a,b,c
-        if a == 0:
-            a = c
-        else:
-            b = int(self.lineEdit.text())
+        global a,b,c,a_1,b_1
+        if a_1 != 0:
+            b = self.lineEdit.text()
+            print(b)
+            print(b.find('.'))
+            if b.find('.') > 0:
+                b_1 = float(b)
+
+            if b.find('.') <= 0:
+                b_1 = int(b)
+
+            
+        if a_1 == 0:
+            a = self.lineEdit.text()
+            print(type(a))
+            if a.find('.') > 0 :
+                a_1 = float(a)
+            elif a.find('.') <= 0:
+                a_1 = int(a)
+        
         if list_ca[0] == '+':
-            print(a+b)
-            c = a + b
-            a = 0
-            self.lineEdit.setText(str(c))
+                print(a_1)
+                print(b_1)
+                c = a_1 + b_1
+                print(c)
+                a_1 = 0
+                a = 0
+                self.lineEdit.setText(str(c))
 
         elif list_ca[0] == '-':
-            print(a-b)
-            c = a - b
-            a = 0
-            self.lineEdit.setText(str(c))
+                print(a_1-b_1)
+                c = a_1- b_1
+                a = 0
+                a_1 = 0
+                self.lineEdit.setText(str(c))
 
         elif list_ca[0] == 'x':
-            print(a*b)
-            c = a * b
-            a = 0
-            self.lineEdit.setText(str(c))
+                print(a_1)
+                print(b_1)
+                c = a_1 * b_1
+                a_1 = 0
+                a = 0
+                self.lineEdit.setText(str(c))
 
         elif list_ca[0] == '/':
-            print(a/b)
-            c = a / b
-            a = 0
-            self.lineEdit.setText(str(c))
+                c = a_1 / b_1
+                a = 0
+                a_1 = 0
+                self.lineEdit.setText(str(c))
             
 
 
     
     def button16Function(self) :
-        global a
+        global a,a_1
         a = self.lineEdit.text()
-        if a.find('.') == True:
-            float(a)
-        else:
-            int(a)
-        list_num.append(int(self.lineEdit.text()))
+        if a.find('.') > 0:
+            a_1 = float(a)
+            print(type(a))
+        elif a.find('.') <= 0:
+            a_1 = int(a)
+        list_num.append(a_1)
         del list_ca[0]
         list_ca.append('-')
         self.lineEdit.setText(self.lineEdit.text()+'-')
         self.lineEdit.setText('')
     
     def button17Function(self) :
-        global a
+        global a,a_1
         a = self.lineEdit.text()
-        if a.find('.') == True:
-            float(a)
-        else:
-            int(a)
-        list_num.append(int(self.lineEdit.text()))
+        if a.find('.') > 0:
+            a_1 = float(a)
+        elif a.find('.') <= 0:
+            a_1 = int(a)
+        list_num.append(a_1)
+        # print(type(a))
         del list_ca[0]
         list_ca.append('x')
         self.lineEdit.setText(self.lineEdit.text()+'x')
         self.lineEdit.setText('')
-        print(a)
 
     def button18Function(self) :
-        global a
+        global a,a_1
         a = self.lineEdit.text()
         
-        if a.find('.') == True:
-            float(a)
-        else:
-            int(a)
-            print(a)
+        if a.find('.') > 0:
+            a_1 = float(a)
+            print(type(a))
+        elif a.find('.') <= 0:
+            a_1 = int(a)
+        list_num.append(a_1)
         del list_ca[0]
         list_ca.append('+')
         self.lineEdit.setText(self.lineEdit.text()+'+')
         self.lineEdit.setText('')
-        print(a)
 
 
 
